@@ -1,4 +1,6 @@
-import { NavLink } from 'react-router-dom';
+'use client';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { 
   LayoutDashboard, Users, FileText, BarChart2, MessageSquare, 
   Settings, HelpCircle, FolderOpen, Plus
@@ -6,6 +8,8 @@ import {
 import './Sidebar.css';
 
 const Sidebar = () => {
+  const pathname = usePathname();
+
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
@@ -17,58 +21,58 @@ const Sidebar = () => {
 
       <div className="sidebar-content">
         <div className="sidebar-section">
-          <NavLink to="/" className={({isActive}) => isActive ? "nav-item active" : "nav-item"}>
+          <Link href="/" className={pathname === '/' ? "nav-item active" : "nav-item"}>
             <LayoutDashboard size={20} />
             <span>Dashboard</span>
-          </NavLink>
+          </Link>
         </div>
 
         <div className="sidebar-section">
           <h3 className="section-title">Workspace</h3>
-          <NavLink to="/personas" className="nav-item">
+          <Link href="/personas" className={pathname === '/personas' ? "nav-item active" : "nav-item"}>
             <Users size={20} />
             <span>All Personas</span>
-          </NavLink>
-          <NavLink to="/favorites" className="nav-item">
+          </Link>
+          <Link href="/favorites" className={pathname === '/favorites' ? "nav-item active" : "nav-item"}>
             <FolderOpen size={20} />
             <span>Favorites</span>
-          </NavLink>
+          </Link>
         </div>
 
         <div className="sidebar-section">
           <h3 className="section-title">Create</h3>
-          <NavLink to="/create" className={({isActive}) => isActive ? "nav-item create-btn active" : "nav-item create-btn"}>
+          <Link href="/create" className={pathname === '/create' ? "nav-item create-btn active" : "nav-item create-btn"}>
             <Plus size={20} />
             <span>Create Persona</span>
-          </NavLink>
+          </Link>
         </div>
         
         <div className="sidebar-section">
           <h3 className="section-title">Resources</h3>
-          <NavLink to="/templates" className="nav-item">
+          <Link href="/templates" className={pathname === '/templates' ? "nav-item active" : "nav-item"}>
             <FileText size={20} />
             <span>Templates</span>
-          </NavLink>
-          <NavLink to="/analytics" className="nav-item">
+          </Link>
+          <Link href="/analytics" className={pathname === '/analytics' ? "nav-item active" : "nav-item"}>
             <BarChart2 size={20} />
             <span>Analytics</span>
-          </NavLink>
-          <NavLink to="/ai-assistant" className="nav-item">
+          </Link>
+          <Link href="/ai-assistant" className={pathname === '/ai-assistant' ? "nav-item active" : "nav-item"}>
             <MessageSquare size={20} />
             <span>AI Assistant</span>
-          </NavLink>
+          </Link>
         </div>
       </div>
 
       <div className="sidebar-footer">
-        <NavLink to="/help" className="nav-item">
+        <Link href="/help" className={pathname === '/help' ? "nav-item active" : "nav-item"}>
           <HelpCircle size={20} />
           <span>Help Center</span>
-        </NavLink>
-        <NavLink to="/settings" className="nav-item">
+        </Link>
+        <Link href="/settings" className={pathname === '/settings' ? "nav-item active" : "nav-item"}>
           <Settings size={20} />
           <span>Settings</span>
-        </NavLink>
+        </Link>
       </div>
     </aside>
   );

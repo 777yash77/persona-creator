@@ -1,3 +1,4 @@
+'use client';
 import { Search, Bell, Moon, Sun, User } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import './TopNav.css';

@@ -1,0 +1,61 @@
+[
+  {
+    "route": "/create",
+    "firstLoadUncompressedJsBytes": 483544,
+    "firstLoadChunkPaths": [
+      ".next\\static\\chunks\\0ylxw6yucqhlx.js",
+      ".next\\static\\chunks\\1rh2o_pldyd7u.js",
+      ".next\\static\\chunks\\1u5zan5bs9a7v.js",
+      ".next\\static\\chunks\\1z99mlp5cofct.js",
+      ".next\\static\\chunks\\0bma92pht_c97.js",
+      ".next\\static\\chunks\\turbopack-3ookby65335ia.js"
+    ]
+  },
+  {
+    "route": "/persona/[id]",
+    "firstLoadUncompressedJsBytes": 481257,
+    "firstLoadChunkPaths": [
+      ".next\\static\\chunks\\0ylxw6yucqhlx.js",
+      ".next\\static\\chunks\\14q5wrw0fu9fg.js",
+      ".next\\static\\chunks\\1u5zan5bs9a7v.js",
+      ".next\\static\\chunks\\1z99mlp5cofct.js",
+      ".next\\static\\chunks\\0bma92pht_c97.js",
+      ".next\\static\\chunks\\turbopack-3ookby65335ia.js"
+    ]
+  },
+  {
+    "route": "/",
+    "firstLoadUncompressedJsBytes": 479717,
+    "firstLoadChunkPaths": [
+      ".next\\static\\chunks\\0ylxw6yucqhlx.js",
+      ".next\\static\\chunks\\2bxnegolz4p-0.js",
+      ".next\\static\\chunks\\1u5zan5bs9a7v.js",
+      ".next\\static\\chunks\\1z99mlp5cofct.js",
+      ".next\\static\\chunks\\0bma92pht_c97.js",
+      ".next\\static\\chunks\\turbopack-3ookby65335ia.js"
+    ]
+  },
+  {
+    "route": "/personas",
+    "firstLoadUncompressedJsBytes": 479715,
+    "firstLoadChunkPaths": [
+      ".next\\static\\chunks\\0ylxw6yucqhlx.js",
+      ".next\\static\\chunks\\3544yedtm5dae.js",
+      ".next\\static\\chunks\\1u5zan5bs9a7v.js",
+      ".next\\static\\chunks\\1z99mlp5cofct.js",
+      ".next\\static\\chunks\\0bma92pht_c97.js",
+      ".next\\static\\chunks\\turbopack-3ookby65335ia.js"
+    ]
+  },
+  {
+    "route": "/_not-found",
+    "firstLoadUncompressedJsBytes": 472965,
+    "firstLoadChunkPaths": [
+      ".next\\static\\chunks\\0ylxw6yucqhlx.js",
+      ".next\\static\\chunks\\1u5zan5bs9a7v.js",
+      ".next\\static\\chunks\\1z99mlp5cofct.js",
+      ".next\\static\\chunks\\0bma92pht_c97.js",
+      ".next\\static\\chunks\\turbopack-3ookby65335ia.js"
+    ]
+  }
+]
