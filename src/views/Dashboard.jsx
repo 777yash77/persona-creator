@@ -5,11 +5,15 @@ import {
   Users, Calendar, FileText, Share2, Plus, ArrowRight,
   MoreVertical, Star, PenTool
 } from 'lucide-react';
-import { dashboardStats, recentPersonas } from '../data/mockData';
+import { dashboardStats } from '../data/mockData';
+import { usePersona } from '../context/PersonaContext';
 import './Dashboard.css';
 
 const Dashboard = () => {
   const router = useRouter();
+  const { personas, isLoaded } = usePersona();
+  
+  const recentPersonas = isLoaded ? personas.slice(0, 4) : [];
 
   return (
     <div className="page-container dashboard-page">
@@ -39,7 +43,7 @@ const Dashboard = () => {
           </div>
           <div className="stat-content">
             <span className="stat-label">Total Personas</span>
-            <span className="stat-value">{dashboardStats.total}</span>
+            <span className="stat-value">{personas ? personas.length : 0}</span>
           </div>
         </div>
         <div className="stat-card">
@@ -110,7 +114,7 @@ const Dashboard = () => {
                 </div>
               </div>
               <div className="persona-card-footer">
-                <span className="last-updated">Updated {persona.lastUpdated}</span>
+                <span className="last-updated">Updated {persona.lastUpdated || persona.createdAt}</span>
               </div>
             </div>
           ))}

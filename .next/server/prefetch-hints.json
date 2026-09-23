@@ -22,6 +22,20 @@
       }
     }
   },
+  "/analytics": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 96,
+        "slots": {
+          "children": {
+            "hints": 160,
+            "slots": null
+          }
+        }
+      }
+    }
+  },
   "/create": {
     "hints": 64,
     "slots": {
@@ -46,6 +60,20 @@
     }
   },
   "/personas": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 96,
+        "slots": {
+          "children": {
+            "hints": 160,
+            "slots": null
+          }
+        }
+      }
+    }
+  },
+  "/settings": {
     "hints": 64,
     "slots": {
       "children": {

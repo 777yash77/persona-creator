@@ -1,10 +1,12 @@
 'use client';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { 
   User, Building2, AlertCircle, Lightbulb, Monitor, Bot,
   ArrowRight, ArrowLeft, Check, Sparkles
 } from 'lucide-react';
-import { personaTypes, questionnaireSteps } from '../data/personaData';
+import { personaTypes, questionnaireSteps, getSchemaForStep } from '../data/personaData';
+import { usePersona } from '../context/PersonaContext';
 import './CreateWizard.css';
 
 const IconMap = {
@@ -17,6 +19,8 @@ const IconMap = {
 };
 
 const CreateWizard = () => {
+  const router = useRouter();
+  const { addPersona } = usePersona();
   const [wizardState, setWizardState] = useState({
     globalStep: 0, // 0: Type, 1: Template, 2+: Questionnaire
     selectedType: null,
@@ -24,6 +28,13 @@ const CreateWizard = () => {
     questionnaireStep: 0,
     formData: {}
   });
+
+  const handleInputChange = (fieldId, value) => {
+    setWizardState(prev => ({
+      ...prev,
+      formData: { ...prev.formData, [fieldId]: value }
+    }));
+  };
 
   const handleTypeSelect = (type) => {
     setWizardState(prev => ({ ...prev, selectedType: type, globalStep: 1 }));
@@ -34,7 +45,22 @@ const CreateWizard = () => {
   };
 
   const handleNextStep = () => {
-    setWizardState(prev => ({ ...prev, questionnaireStep: prev.questionnaireStep + 1 }));
+    const isLastStep = wizardState.questionnaireStep === questionnaireSteps.length - 1;
+    if (isLastStep) {
+      // Save and Generate
+      const personaToSave = {
+        name: wizardState.formData.name || 'Untitled Persona',
+        role: wizardState.formData.role || wizardState.selectedTemplate?.name || 'Persona',
+        type: wizardState.selectedType?.title || 'Person',
+        avatarColor: `hsl(${Math.random() * 360}, 70%, 50%)`, // Random avatar color
+        description: wizardState.formData.description || 'Generated persona.',
+        ...wizardState.formData, // capture all other dynamic fields
+      };
+      const newId = addPersona(personaToSave);
+      router.push(`/persona/${newId}`);
+    } else {
+      setWizardState(prev => ({ ...prev, questionnaireStep: prev.questionnaireStep + 1 }));
+    }
   };
 
   const handlePrevStep = () => {
@@ -148,15 +174,46 @@ const CreateWizard = () => {
           </div>
           
           <div className="form-body">
-            {/* Dummy form fields based on step */}
-            <div className="form-group">
-              <label>Persona Name</label>
-              <input type="text" placeholder="e.g. Alex Smith" className="form-input" />
-            </div>
-            <div className="form-group">
-              <label>Description</label>
-              <textarea placeholder="Brief summary of this persona..." className="form-textarea" rows={4} />
-            </div>
+            {currentStepName === 'Review' ? (
+              <div className="review-section">
+                <h3>Review Your Persona</h3>
+                <p>Ensure all details are correct before generating.</p>
+                <div className="review-summary">
+                  {Object.entries(wizardState.formData).map(([key, value]) => (
+                    <div key={key} className="review-item">
+                      <span className="review-label">{key}</span>
+                      <span className="review-value">{value}</span>
+                    </div>
+                  ))}
+                  {Object.keys(wizardState.formData).length === 0 && (
+                    <p className="text-secondary">No data entered yet.</p>
+                  )}
+                </div>
+              </div>
+            ) : (
+              getSchemaForStep(currentStepName).map((field) => (
+                <div key={field.id} className="form-group">
+                  <label>{field.label}</label>
+                  {field.type === 'textarea' ? (
+                    <textarea 
+                      placeholder={field.placeholder} 
+                      className="form-textarea" 
+                      rows={4}
+                      value={wizardState.formData[field.id] || ''}
+                      onChange={(e) => handleInputChange(field.id, e.target.value)}
+                    />
+                  ) : (
+                    <input 
+                      type={field.type} 
+                      placeholder={field.placeholder} 
+                      className="form-input" 
+                      value={wizardState.formData[field.id] || ''}
+                      onChange={(e) => handleInputChange(field.id, e.target.value)}
+                    />
+                  )}
+                </div>
+              ))
+            )}
           </div>
 
           <div className="form-footer">
@@ -166,7 +223,7 @@ const CreateWizard = () => {
             <div className="form-footer-right">
               <button className="text-btn">Save Draft</button>
               {isLastStep ? (
-                <button className="primary-cta-btn generate-btn">
+                <button className="primary-cta-btn generate-btn" onClick={handleNextStep}>
                   Generate Persona
                 </button>
               ) : (

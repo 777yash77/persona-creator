@@ -1,6 +1,7 @@
 import './globals.css';
 import Sidebar from '../components/Sidebar';
 import TopNav from '../components/TopNav';
+import { PersonaProvider } from '../context/PersonaContext';
 
 export const metadata = {
   title: 'PersonaHub',
@@ -11,13 +12,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <div className="app-container">
-          <Sidebar />
-          <div className="main-content">
-            <TopNav />
-            {children}
+        <PersonaProvider>
+          <div className="app-container">
+            <Sidebar />
+            <div className="main-content">
+              <TopNav />
+              {children}
+            </div>
           </div>
-        </div>
+        </PersonaProvider>
       </body>
     </html>
   );

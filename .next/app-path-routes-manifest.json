@@ -1,8 +1,10 @@
 {
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",
+  "/analytics/page": "/analytics",
   "/create/page": "/create",
   "/page": "/",
   "/persona/[id]/page": "/persona/[id]",
-  "/personas/page": "/personas"
+  "/personas/page": "/personas",
+  "/settings/page": "/settings"
 }

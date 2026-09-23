@@ -96,10 +96,34 @@ export const questionnaireSteps = [
   'Background',
   'Goals',
   'Problems',
-  'Behaviors',
-  'Needs',
-  'Context',
-  'Final Details',
-  'Review',
-  'Generate'
+  'Review'
 ];
+
+export const getSchemaForStep = (stepName) => {
+  switch(stepName) {
+    case 'Basic Information':
+      return [
+        { id: 'name', label: 'Persona Name', type: 'text', placeholder: 'e.g. Alex Smith' },
+        { id: 'role', label: 'Role / Job Title', type: 'text', placeholder: 'e.g. Marketing Manager' },
+        { id: 'description', label: 'Short Description', type: 'textarea', placeholder: 'Brief summary...' }
+      ];
+    case 'Background':
+      return [
+        { id: 'age', label: 'Age Range', type: 'text', placeholder: 'e.g. 25-34' },
+        { id: 'location', label: 'Location', type: 'text', placeholder: 'e.g. New York, USA' },
+        { id: 'education', label: 'Education', type: 'text', placeholder: 'e.g. Bachelor in Business' }
+      ];
+    case 'Goals':
+      return [
+        { id: 'primaryGoal', label: 'Primary Goal', type: 'text', placeholder: 'What do they want to achieve?' },
+        { id: 'secondaryGoals', label: 'Secondary Goals', type: 'textarea', placeholder: 'Any other goals...' }
+      ];
+    case 'Problems':
+      return [
+        { id: 'painPoints', label: 'Pain Points', type: 'textarea', placeholder: 'What frustrates them?' },
+        { id: 'challenges', label: 'Main Challenges', type: 'textarea', placeholder: 'What blocks their success?' }
+      ];
+    default:
+      return [];
+  }
+};

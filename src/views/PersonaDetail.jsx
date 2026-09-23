@@ -1,5 +1,7 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useParams, useRouter } from 'next/navigation';
+import { usePersona } from '../context/PersonaContext';
 import { 
   Edit2, Copy, Share2, Download, Archive, Trash2, MoreHorizontal,
   Star, Target, AlertTriangle, TrendingUp, Sparkles, MessageSquare
@@ -9,29 +11,44 @@ import './PersonaDetail.css';
 const tabs = ['Overview', 'Insights', 'Journey', 'Goals', 'Pain Points', 'Behavior', 'Notes', 'Activity'];
 
 const PersonaDetail = () => {
+  const { id } = useParams();
+  const router = useRouter();
+  const { getPersona, deletePersona, duplicatePersona } = usePersona();
   const [activeTab, setActiveTab] = useState('Overview');
-  const persona = {
-    name: 'Arjun',
-    role: 'SaaS Product Manager',
-    type: 'Person Persona',
-    template: 'Product User Persona',
-    status: 'Complete',
-    lastUpdated: '2 hours ago',
-    avatarColor: '#7f56d9',
-    tags: ['B2B', 'Tech', 'Manager']
+  const [persona, setPersona] = useState(null);
+
+  useEffect(() => {
+    if (id) {
+      const found = getPersona(id);
+      if (found) setPersona(found);
+    }
+  }, [id, getPersona]);
+
+  if (!persona) return <div className="page-container p-lg">Loading...</div>;
+
+  const handleDelete = () => {
+    if(confirm('Are you sure you want to delete this persona?')) {
+      deletePersona(id);
+      router.push('/personas');
+    }
+  };
+
+  const handleDuplicate = () => {
+    const newId = duplicatePersona(id);
+    if(newId) router.push(`/persona/${newId}`);
   };
 
   return (
     <div className="page-container detail-page">
       <div className="detail-header-actions">
-        <button className="back-link">← Back to Personas</button>
+        <button className="back-link" onClick={() => router.push('/personas')}>← Back to Personas</button>
         <div className="action-buttons">
-          <button className="icon-btn"><Edit2 size={18} /></button>
-          <button className="icon-btn"><Copy size={18} /></button>
-          <button className="icon-btn"><Share2 size={18} /></button>
-          <button className="icon-btn"><Download size={18} /></button>
-          <button className="icon-btn"><Star size={18} /></button>
-          <button className="icon-btn text-danger"><Trash2 size={18} /></button>
+          <button className="icon-btn" title="Edit"><Edit2 size={18} /></button>
+          <button className="icon-btn" title="Duplicate" onClick={handleDuplicate}><Copy size={18} /></button>
+          <button className="icon-btn" title="Share"><Share2 size={18} /></button>
+          <button className="icon-btn" title="Download"><Download size={18} /></button>
+          <button className="icon-btn" title="Favorite"><Star size={18} /></button>
+          <button className="icon-btn text-danger" title="Delete" onClick={handleDelete}><Trash2 size={18} /></button>
           <button className="icon-btn"><MoreHorizontal size={18} /></button>
         </div>
       </div>
@@ -45,8 +62,7 @@ const PersonaDetail = () => {
           <p className="detail-role">{persona.role}</p>
           <div className="detail-meta">
             <span className="badge">{persona.type}</span>
-            <span className="badge outline">{persona.template}</span>
-            <span className="text-muted">Updated {persona.lastUpdated}</span>
+            <span className="text-muted">Updated {persona.lastUpdated || persona.createdAt}</span>
           </div>
         </div>
       </div>

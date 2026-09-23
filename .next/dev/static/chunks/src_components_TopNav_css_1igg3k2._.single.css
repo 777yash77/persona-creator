@@ -1,0 +1,96 @@
+/* [project]/src/components/TopNav.css [app-client] (css) */
+.topnav {
+  height: var(--topnav-height);
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 var(--spacing-xl);
+  z-index: 10;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  position: sticky;
+  top: 0;
+}
+
+.search-container {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: 0 var(--spacing-md);
+  border: 1px solid #0000;
+  align-items: center;
+  width: 400px;
+  transition: all .2s;
+  display: flex;
+}
+
+.search-container:focus-within {
+  border-color: var(--primary-color);
+  background-color: var(--bg-primary);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.search-icon {
+  color: var(--text-tertiary);
+}
+
+.search-input {
+  width: 100%;
+  padding: var(--spacing-sm);
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.topnav-actions {
+  align-items: center;
+  gap: var(--spacing-md);
+  display: flex;
+}
+
+.action-btn {
+  color: var(--text-secondary);
+  border-radius: var(--radius-md);
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  transition: all .2s;
+  display: flex;
+}
+
+.action-btn:hover {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.profile-btn {
+  border: 2px solid #0000;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  transition: all .2s;
+  display: flex;
+}
+
+.profile-btn:hover {
+  border-color: var(--primary-color);
+}
+
+.avatar {
+  background-color: var(--bg-tertiary);
+  width: 36px;
+  height: 36px;
+  color: var(--text-secondary);
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+/*# sourceMappingURL=src_components_TopNav_css_1igg3k2._.single.css.map*/

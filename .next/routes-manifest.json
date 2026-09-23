@@ -51,6 +51,12 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
+      "page": "/analytics",
+      "regex": "^/analytics(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/analytics(?:/)?$"
+    },
+    {
       "page": "/create",
       "regex": "^/create(?:/)?$",
       "routeKeys": {},
@@ -61,6 +67,12 @@
       "regex": "^/personas(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/personas(?:/)?$"
+    },
+    {
+      "page": "/settings",
+      "regex": "^/settings(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/settings(?:/)?$"
     }
   ],
   "dataRoutes": [],

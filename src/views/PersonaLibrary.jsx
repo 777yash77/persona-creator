@@ -5,13 +5,15 @@ import { useRouter } from 'next/navigation';
 import { 
   Search, Filter, Plus, MoreVertical, Star, LayoutGrid, List
 } from 'lucide-react';
-import { recentPersonas } from '../data/mockData';
+import { usePersona } from '../context/PersonaContext';
 import './Dashboard.css'; // Reusing some card styles
 import './PersonaLibrary.css';
 
 const PersonaLibrary = () => {
   const router = useRouter();
+  const { personas, isLoaded } = usePersona();
   const [viewMode, setViewMode] = useState('grid');
+  const recentPersonas = isLoaded ? personas : [];
   
   return (
     <div className="page-container library-page">
@@ -73,15 +75,15 @@ const PersonaLibrary = () => {
                     <span className="persona-type">{persona.type}</span>
                   </div>
                   <div className="persona-tags">
-                    {persona.tags.map(tag => (
+                    {(persona.tags || []).map(tag => (
                       <span key={tag} className="tag">{tag}</span>
                     ))}
                   </div>
                 </div>
                 <div className="persona-card-footer">
-                  <span className="last-updated">Updated {persona.lastUpdated}</span>
-                  <span className={`persona-status ${persona.status.toLowerCase()}`}>
-                    {persona.status}
+                  <span className="last-updated">Updated {persona.lastUpdated || persona.createdAt}</span>
+                  <span className={`persona-status ${persona.status ? persona.status.toLowerCase() : 'draft'}`}>
+                    {persona.status || 'Draft'}
                   </span>
                 </div>
               </Link>
@@ -114,11 +116,11 @@ const PersonaLibrary = () => {
                     <td className="text-secondary">{persona.role}</td>
                     <td><span className="badge">{persona.type}</span></td>
                     <td>
-                      <span className={`persona-status ${persona.status.toLowerCase()}`}>
-                        {persona.status}
+                      <span className={`persona-status ${persona.status ? persona.status.toLowerCase() : 'draft'}`}>
+                        {persona.status || 'Draft'}
                       </span>
                     </td>
-                    <td className="text-tertiary">{persona.lastUpdated}</td>
+                    <td className="text-tertiary">{persona.lastUpdated || persona.createdAt}</td>
                     <td className="text-right" onClick={e => e.stopPropagation()}>
                       <button className="icon-btn"><MoreVertical size={16} /></button>
                     </td>
