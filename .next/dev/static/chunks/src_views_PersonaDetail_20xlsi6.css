@@ -1,0 +1,291 @@
+/* [project]/src/views/PersonaDetail.css [app-client] (css) */
+.detail-page {
+  gap: var(--spacing-xl);
+  flex-direction: column;
+  display: flex;
+}
+
+.detail-header-actions {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.back-link {
+  color: var(--text-secondary);
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-weight: 500;
+  display: flex;
+}
+
+.back-link:hover {
+  color: var(--text-primary);
+}
+
+.action-buttons {
+  gap: var(--spacing-sm);
+  display: flex;
+}
+
+.icon-btn {
+  border-radius: var(--radius-md);
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  width: 36px;
+  height: 36px;
+  color: var(--text-secondary);
+  justify-content: center;
+  align-items: center;
+  transition: all .2s;
+  display: flex;
+}
+
+.icon-btn:hover {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.text-danger {
+  color: var(--danger-color);
+}
+
+.text-danger:hover {
+  background-color: var(--danger-light);
+  color: var(--danger-color);
+  border-color: #0000;
+}
+
+.detail-header {
+  gap: var(--spacing-lg);
+  align-items: flex-start;
+  display: flex;
+}
+
+.detail-avatar {
+  border-radius: var(--radius-lg);
+  color: #fff;
+  width: 80px;
+  height: 80px;
+  box-shadow: var(--shadow-md);
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  display: flex;
+}
+
+.detail-info {
+  gap: var(--spacing-xs);
+  flex-direction: column;
+  display: flex;
+}
+
+.detail-info h1 {
+  color: var(--text-primary);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.detail-role {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+}
+
+.detail-meta {
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+  display: flex;
+}
+
+.badge {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border-radius: 16px;
+  padding: 4px 10px;
+  font-size: .8rem;
+  font-weight: 500;
+}
+
+.badge.outline {
+  border: 1px solid var(--border-color);
+  background: none;
+}
+
+.text-muted {
+  color: var(--text-tertiary);
+  font-size: .8rem;
+}
+
+.detail-tabs {
+  gap: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0;
+  display: flex;
+  overflow-x: auto;
+}
+
+.tab-btn {
+  padding: var(--spacing-sm) 0;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  border-bottom: 2px solid #0000;
+  font-weight: 500;
+}
+
+.tab-btn:hover {
+  color: var(--text-primary);
+}
+
+.tab-btn.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+.detail-content {
+  flex: 1;
+}
+
+.overview-grid {
+  gap: var(--spacing-lg);
+  grid-template-columns: repeat(2, 1fr);
+  display: grid;
+}
+
+.detail-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.col-span-2 {
+  grid-column: span 2;
+}
+
+.card-header-icon {
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  display: flex;
+}
+
+.card-header-icon h3 {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.text-blue {
+  color: #2e90fa;
+}
+
+.text-orange {
+  color: #f79009;
+}
+
+.text-green {
+  color: #12b76a;
+}
+
+.text-purple {
+  color: #9e77ed;
+}
+
+.profile-card h3 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.profile-card ul {
+  gap: var(--spacing-sm);
+  flex-direction: column;
+  list-style: none;
+  display: flex;
+}
+
+.profile-card li {
+  color: var(--text-secondary);
+  font-size: .95rem;
+}
+
+.profile-card li strong {
+  color: var(--text-primary);
+  width: 100px;
+  display: inline-block;
+}
+
+.list-styled {
+  color: var(--text-secondary);
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+.list-styled li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.ai-insights-container {
+  gap: var(--spacing-lg);
+  flex-direction: column;
+  display: flex;
+}
+
+.insight-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  gap: var(--spacing-lg);
+  align-items: flex-start;
+  display: flex;
+}
+
+.insight-card.highlight {
+  border-color: var(--primary-light);
+  background: linear-gradient(to right, var(--bg-primary), var(--primary-light) 500%);
+}
+
+.insight-card h3 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.insight-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.floating-ai-assistant {
+  z-index: 50;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+}
+
+.chat-fab {
+  background: var(--primary-color);
+  color: #fff;
+  width: 56px;
+  height: 56px;
+  box-shadow: var(--shadow-lg);
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  transition: all .2s;
+  display: flex;
+}
+
+.chat-fab:hover {
+  background: var(--primary-hover);
+  transform: scale(1.05);
+}
+
+/*# sourceMappingURL=src_views_PersonaDetail_20xlsi6.css.map*/

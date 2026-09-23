@@ -4,7 +4,7 @@ import { useParams, useRouter } from 'next/navigation';
 import { usePersona } from '../context/PersonaContext';
 import { 
   Edit2, Copy, Share2, Download, Archive, Trash2, MoreHorizontal,
-  Star, Target, AlertTriangle, TrendingUp, Sparkles, MessageSquare
+  Star, Target, AlertTriangle, TrendingUp, Sparkles, MessageSquare, Bot
 } from 'lucide-react';
 import './PersonaDetail.css';
 
