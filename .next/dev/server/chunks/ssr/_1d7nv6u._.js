@@ -402,7 +402,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$ellipsis$2d$vertical$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MoreVertical$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/ellipsis-vertical.mjs [app-ssr] (ecmascript) <export default as MoreVertical>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$star$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Star$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/star.mjs [app-ssr] (ecmascript) <export default as Star>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$mockData$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/mockData.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$context$2f$PersonaContext$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/context/PersonaContext.js [app-ssr] (ecmascript)");
 'use client';
+;
 ;
 ;
 ;
@@ -411,6 +413,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$mockData$2e$j
 ;
 const Dashboard = ()=>{
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
+    const { personas, isLoaded } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$context$2f$PersonaContext$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["usePersona"])();
+    const recentPersonas = isLoaded ? personas.slice(0, 4) : [];
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "page-container dashboard-page",
         children: [
@@ -423,7 +427,7 @@ const Dashboard = ()=>{
                             children: "Good morning, Alex"
                         }, void 0, false, {
                             fileName: "[project]/src/views/Dashboard.jsx",
-                            lineNumber: 18,
+                            lineNumber: 22,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -431,18 +435,18 @@ const Dashboard = ()=>{
                             children: "Build better products by understanding the people, businesses, and problems behind them."
                         }, void 0, false, {
                             fileName: "[project]/src/views/Dashboard.jsx",
-                            lineNumber: 19,
+                            lineNumber: 23,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/views/Dashboard.jsx",
-                    lineNumber: 17,
+                    lineNumber: 21,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/views/Dashboard.jsx",
-                lineNumber: 16,
+                lineNumber: 20,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -456,20 +460,20 @@ const Dashboard = ()=>{
                                 size: 24
                             }, void 0, false, {
                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                lineNumber: 25,
+                                lineNumber: 29,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 children: "Create Persona"
                             }, void 0, false, {
                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                lineNumber: 26,
+                                lineNumber: 30,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/views/Dashboard.jsx",
-                        lineNumber: 24,
+                        lineNumber: 28,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -480,7 +484,7 @@ const Dashboard = ()=>{
                                 children: "Import Persona"
                             }, void 0, false, {
                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                lineNumber: 29,
+                                lineNumber: 33,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -488,7 +492,7 @@ const Dashboard = ()=>{
                                 children: "Use Template"
                             }, void 0, false, {
                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                lineNumber: 30,
+                                lineNumber: 34,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -496,19 +500,19 @@ const Dashboard = ()=>{
                                 children: "Generate with AI"
                             }, void 0, false, {
                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                lineNumber: 31,
+                                lineNumber: 35,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/views/Dashboard.jsx",
-                        lineNumber: 28,
+                        lineNumber: 32,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/views/Dashboard.jsx",
-                lineNumber: 23,
+                lineNumber: 27,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -523,12 +527,12 @@ const Dashboard = ()=>{
                                     size: 20
                                 }, void 0, false, {
                                     fileName: "[project]/src/views/Dashboard.jsx",
-                                    lineNumber: 38,
+                                    lineNumber: 42,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                lineNumber: 37,
+                                lineNumber: 41,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -539,27 +543,27 @@ const Dashboard = ()=>{
                                         children: "Total Personas"
                                     }, void 0, false, {
                                         fileName: "[project]/src/views/Dashboard.jsx",
-                                        lineNumber: 41,
+                                        lineNumber: 45,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "stat-value",
-                                        children: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$mockData$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["dashboardStats"].total
+                                        children: personas ? personas.length : 0
                                     }, void 0, false, {
                                         fileName: "[project]/src/views/Dashboard.jsx",
-                                        lineNumber: 42,
+                                        lineNumber: 46,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                lineNumber: 40,
+                                lineNumber: 44,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/views/Dashboard.jsx",
-                        lineNumber: 36,
+                        lineNumber: 40,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -571,12 +575,12 @@ const Dashboard = ()=>{
                                     size: 20
                                 }, void 0, false, {
                                     fileName: "[project]/src/views/Dashboard.jsx",
-                                    lineNumber: 47,
+                                    lineNumber: 51,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                lineNumber: 46,
+                                lineNumber: 50,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -587,7 +591,7 @@ const Dashboard = ()=>{
                                         children: "Created This Month"
                                     }, void 0, false, {
                                         fileName: "[project]/src/views/Dashboard.jsx",
-                                        lineNumber: 50,
+                                        lineNumber: 54,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -595,19 +599,19 @@ const Dashboard = ()=>{
                                         children: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$mockData$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["dashboardStats"].thisMonth
                                     }, void 0, false, {
                                         fileName: "[project]/src/views/Dashboard.jsx",
-                                        lineNumber: 51,
+                                        lineNumber: 55,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                lineNumber: 49,
+                                lineNumber: 53,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/views/Dashboard.jsx",
-                        lineNumber: 45,
+                        lineNumber: 49,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -619,12 +623,12 @@ const Dashboard = ()=>{
                                     size: 20
                                 }, void 0, false, {
                                     fileName: "[project]/src/views/Dashboard.jsx",
-                                    lineNumber: 56,
+                                    lineNumber: 60,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                lineNumber: 55,
+                                lineNumber: 59,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -635,7 +639,7 @@ const Dashboard = ()=>{
                                         children: "Drafts"
                                     }, void 0, false, {
                                         fileName: "[project]/src/views/Dashboard.jsx",
-                                        lineNumber: 59,
+                                        lineNumber: 63,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -643,19 +647,19 @@ const Dashboard = ()=>{
                                         children: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$mockData$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["dashboardStats"].drafts
                                     }, void 0, false, {
                                         fileName: "[project]/src/views/Dashboard.jsx",
-                                        lineNumber: 60,
+                                        lineNumber: 64,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                lineNumber: 58,
+                                lineNumber: 62,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/views/Dashboard.jsx",
-                        lineNumber: 54,
+                        lineNumber: 58,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -667,12 +671,12 @@ const Dashboard = ()=>{
                                     size: 20
                                 }, void 0, false, {
                                     fileName: "[project]/src/views/Dashboard.jsx",
-                                    lineNumber: 65,
+                                    lineNumber: 69,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                lineNumber: 64,
+                                lineNumber: 68,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -683,7 +687,7 @@ const Dashboard = ()=>{
                                         children: "Shared"
                                     }, void 0, false, {
                                         fileName: "[project]/src/views/Dashboard.jsx",
-                                        lineNumber: 68,
+                                        lineNumber: 72,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -691,25 +695,25 @@ const Dashboard = ()=>{
                                         children: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$mockData$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["dashboardStats"].shared
                                     }, void 0, false, {
                                         fileName: "[project]/src/views/Dashboard.jsx",
-                                        lineNumber: 69,
+                                        lineNumber: 73,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                lineNumber: 67,
+                                lineNumber: 71,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/views/Dashboard.jsx",
-                        lineNumber: 63,
+                        lineNumber: 67,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/views/Dashboard.jsx",
-                lineNumber: 35,
+                lineNumber: 39,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -722,7 +726,7 @@ const Dashboard = ()=>{
                                 children: "Recent Personas"
                             }, void 0, false, {
                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                lineNumber: 76,
+                                lineNumber: 80,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -734,24 +738,24 @@ const Dashboard = ()=>{
                                         size: 16
                                     }, void 0, false, {
                                         fileName: "[project]/src/views/Dashboard.jsx",
-                                        lineNumber: 78,
+                                        lineNumber: 82,
                                         columnNumber: 31
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                lineNumber: 77,
+                                lineNumber: 81,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/views/Dashboard.jsx",
-                        lineNumber: 75,
+                        lineNumber: 79,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "personas-grid",
-                        children: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$mockData$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["recentPersonas"].map((persona)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        children: recentPersonas.map((persona)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "persona-card",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -765,7 +769,7 @@ const Dashboard = ()=>{
                                                 children: persona.name.charAt(0)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                                lineNumber: 86,
+                                                lineNumber: 90,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -776,7 +780,7 @@ const Dashboard = ()=>{
                                                         className: "favorite-icon filled"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/views/Dashboard.jsx",
-                                                        lineNumber: 93,
+                                                        lineNumber: 97,
                                                         columnNumber: 42
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -785,24 +789,24 @@ const Dashboard = ()=>{
                                                             size: 16
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/views/Dashboard.jsx",
-                                                            lineNumber: 94,
+                                                            lineNumber: 98,
                                                             columnNumber: 48
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/views/Dashboard.jsx",
-                                                        lineNumber: 94,
+                                                        lineNumber: 98,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                                lineNumber: 92,
+                                                lineNumber: 96,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/views/Dashboard.jsx",
-                                        lineNumber: 85,
+                                        lineNumber: 89,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -813,7 +817,7 @@ const Dashboard = ()=>{
                                                 children: persona.name
                                             }, void 0, false, {
                                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                                lineNumber: 98,
+                                                lineNumber: 102,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -821,7 +825,7 @@ const Dashboard = ()=>{
                                                 children: persona.role
                                             }, void 0, false, {
                                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                                lineNumber: 99,
+                                                lineNumber: 103,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -832,7 +836,7 @@ const Dashboard = ()=>{
                                                         children: persona.type
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/views/Dashboard.jsx",
-                                                        lineNumber: 101,
+                                                        lineNumber: 105,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -840,13 +844,13 @@ const Dashboard = ()=>{
                                                         children: persona.status
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/views/Dashboard.jsx",
-                                                        lineNumber: 102,
+                                                        lineNumber: 106,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                                lineNumber: 100,
+                                                lineNumber: 104,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -856,18 +860,18 @@ const Dashboard = ()=>{
                                                         children: tag
                                                     }, tag, false, {
                                                         fileName: "[project]/src/views/Dashboard.jsx",
-                                                        lineNumber: 108,
+                                                        lineNumber: 112,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0)))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                                lineNumber: 106,
+                                                lineNumber: 110,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/views/Dashboard.jsx",
-                                        lineNumber: 97,
+                                        lineNumber: 101,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -876,39 +880,39 @@ const Dashboard = ()=>{
                                             className: "last-updated",
                                             children: [
                                                 "Updated ",
-                                                persona.lastUpdated
+                                                persona.lastUpdated || persona.createdAt
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/views/Dashboard.jsx",
-                                            lineNumber: 113,
+                                            lineNumber: 117,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/src/views/Dashboard.jsx",
-                                        lineNumber: 112,
+                                        lineNumber: 116,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, persona.id, true, {
                                 fileName: "[project]/src/views/Dashboard.jsx",
-                                lineNumber: 84,
+                                lineNumber: 88,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)))
                     }, void 0, false, {
                         fileName: "[project]/src/views/Dashboard.jsx",
-                        lineNumber: 82,
+                        lineNumber: 86,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/views/Dashboard.jsx",
-                lineNumber: 74,
+                lineNumber: 78,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/views/Dashboard.jsx",
-        lineNumber: 15,
+        lineNumber: 19,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };

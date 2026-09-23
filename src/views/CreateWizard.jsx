@@ -118,24 +118,29 @@ const CreateWizard = () => {
               key={template.id} 
               className="template-card"
             >
-              <div className="template-card-header">
-                <span className="template-number">Template {idx + 1}</span>
-                <span className={`complexity-badge ${template.complexity.toLowerCase()}`}>
-                  {template.complexity}
-                </span>
+              <div className="template-card-image">
+                <img src="/assets/template-placeholder.jpg" alt={`${template.name} preview`} />
               </div>
-              <h3 className="template-title">{template.name}</h3>
-              <div className="template-meta">
-                <span>{template.sections} sections</span>
-              </div>
-              <div className="template-actions">
-                <button className="preview-btn">Preview</button>
-                <button 
-                  className="use-template-btn"
-                  onClick={() => handleTemplateSelect(template)}
-                >
-                  Use Template
-                </button>
+              <div className="template-card-content">
+                <div className="template-card-header">
+                  <span className="template-number">Template {idx + 1}</span>
+                  <span className={`complexity-badge ${template.complexity.toLowerCase()}`}>
+                    {template.complexity}
+                  </span>
+                </div>
+                <h3 className="template-title">{template.name}</h3>
+                <div className="template-meta">
+                  <span>{template.sections} sections</span>
+                </div>
+                <div className="template-actions">
+                  <button className="preview-btn">Preview</button>
+                  <button 
+                    className="use-template-btn"
+                    onClick={() => handleTemplateSelect(template)}
+                  >
+                    Use Template
+                  </button>
+                </div>
               </div>
             </div>
           ))}

@@ -562,9 +562,8 @@ const PersonaProvider = ({ children })=>{
             if (saved) {
                 setPersonas(JSON.parse(saved));
             } else {
-                // Seed with mock data
-                setPersonas(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$mockData$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["recentPersonas"]);
-                localStorage.setItem('persona-hub-data', JSON.stringify(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$mockData$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["recentPersonas"]));
+                setPersonas([]);
+                localStorage.setItem('persona-hub-data', JSON.stringify([]));
             }
             setIsLoaded(true);
         }
@@ -627,7 +626,7 @@ const PersonaProvider = ({ children })=>{
         children: children
     }, void 0, false, {
         fileName: "[project]/src/context/PersonaContext.js",
-        lineNumber: 71,
+        lineNumber: 70,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };

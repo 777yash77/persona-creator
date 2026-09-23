@@ -1200,82 +1200,106 @@ const CreateWizard = ()=>{
                             className: "template-card",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "template-card-header",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "template-number",
-                                            children: [
-                                                "Template ",
-                                                idx + 1
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/src/views/CreateWizard.jsx",
-                                            lineNumber: 122,
-                                            columnNumber: 17
-                                        }, ("TURBOPACK compile-time value", void 0)),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: `complexity-badge ${template.complexity.toLowerCase()}`,
-                                            children: template.complexity
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/views/CreateWizard.jsx",
-                                            lineNumber: 123,
-                                            columnNumber: 17
-                                        }, ("TURBOPACK compile-time value", void 0))
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/views/CreateWizard.jsx",
-                                    lineNumber: 121,
-                                    columnNumber: 15
-                                }, ("TURBOPACK compile-time value", void 0)),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                    className: "template-title",
-                                    children: template.name
-                                }, void 0, false, {
-                                    fileName: "[project]/src/views/CreateWizard.jsx",
-                                    lineNumber: 127,
-                                    columnNumber: 15
-                                }, ("TURBOPACK compile-time value", void 0)),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "template-meta",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        children: [
-                                            template.sections,
-                                            " sections"
-                                        ]
-                                    }, void 0, true, {
+                                    className: "template-card-image",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                        src: "/assets/template-placeholder.jpg",
+                                        alt: `${template.name} preview`
+                                    }, void 0, false, {
                                         fileName: "[project]/src/views/CreateWizard.jsx",
-                                        lineNumber: 129,
+                                        lineNumber: 122,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/src/views/CreateWizard.jsx",
-                                    lineNumber: 128,
+                                    lineNumber: 121,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "template-actions",
+                                    className: "template-card-content",
                                     children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            className: "preview-btn",
-                                            children: "Preview"
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "template-card-header",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "template-number",
+                                                    children: [
+                                                        "Template ",
+                                                        idx + 1
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/views/CreateWizard.jsx",
+                                                    lineNumber: 126,
+                                                    columnNumber: 19
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: `complexity-badge ${template.complexity.toLowerCase()}`,
+                                                    children: template.complexity
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/views/CreateWizard.jsx",
+                                                    lineNumber: 127,
+                                                    columnNumber: 19
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/views/CreateWizard.jsx",
+                                            lineNumber: 125,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                            className: "template-title",
+                                            children: template.name
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/views/CreateWizard.jsx",
+                                            lineNumber: 131,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "template-meta",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                children: [
+                                                    template.sections,
+                                                    " sections"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/views/CreateWizard.jsx",
+                                                lineNumber: 133,
+                                                columnNumber: 19
+                                            }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/CreateWizard.jsx",
                                             lineNumber: 132,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            className: "use-template-btn",
-                                            onClick: ()=>handleTemplateSelect(template),
-                                            children: "Use Template"
-                                        }, void 0, false, {
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "template-actions",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                    className: "preview-btn",
+                                                    children: "Preview"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/views/CreateWizard.jsx",
+                                                    lineNumber: 136,
+                                                    columnNumber: 19
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                    className: "use-template-btn",
+                                                    onClick: ()=>handleTemplateSelect(template),
+                                                    children: "Use Template"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/views/CreateWizard.jsx",
+                                                    lineNumber: 137,
+                                                    columnNumber: 19
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            ]
+                                        }, void 0, true, {
                                             fileName: "[project]/src/views/CreateWizard.jsx",
-                                            lineNumber: 133,
+                                            lineNumber: 135,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/views/CreateWizard.jsx",
-                                    lineNumber: 131,
+                                    lineNumber: 124,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
@@ -1315,12 +1339,12 @@ const CreateWizard = ()=>{
                                             size: 12
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/CreateWizard.jsx",
-                                            lineNumber: 161,
+                                            lineNumber: 166,
                                             columnNumber: 58
                                         }, ("TURBOPACK compile-time value", void 0)) : idx + 1
                                     }, void 0, false, {
                                         fileName: "[project]/src/views/CreateWizard.jsx",
-                                        lineNumber: 160,
+                                        lineNumber: 165,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1328,23 +1352,23 @@ const CreateWizard = ()=>{
                                         children: step
                                     }, void 0, false, {
                                         fileName: "[project]/src/views/CreateWizard.jsx",
-                                        lineNumber: 163,
+                                        lineNumber: 168,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, step, true, {
                                 fileName: "[project]/src/views/CreateWizard.jsx",
-                                lineNumber: 156,
+                                lineNumber: 161,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)))
                     }, void 0, false, {
                         fileName: "[project]/src/views/CreateWizard.jsx",
-                        lineNumber: 154,
+                        lineNumber: 159,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/src/views/CreateWizard.jsx",
-                    lineNumber: 153,
+                    lineNumber: 158,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1362,7 +1386,7 @@ const CreateWizard = ()=>{
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/views/CreateWizard.jsx",
-                                    lineNumber: 170,
+                                    lineNumber: 175,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1372,20 +1396,20 @@ const CreateWizard = ()=>{
                                             size: 16
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/CreateWizard.jsx",
-                                            lineNumber: 172,
+                                            lineNumber: 177,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         " Auto-fill with AI"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/views/CreateWizard.jsx",
-                                    lineNumber: 171,
+                                    lineNumber: 176,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/views/CreateWizard.jsx",
-                            lineNumber: 169,
+                            lineNumber: 174,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1397,14 +1421,14 @@ const CreateWizard = ()=>{
                                         children: "Review Your Persona"
                                     }, void 0, false, {
                                         fileName: "[project]/src/views/CreateWizard.jsx",
-                                        lineNumber: 179,
+                                        lineNumber: 184,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         children: "Ensure all details are correct before generating."
                                     }, void 0, false, {
                                         fileName: "[project]/src/views/CreateWizard.jsx",
-                                        lineNumber: 180,
+                                        lineNumber: 185,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1418,7 +1442,7 @@ const CreateWizard = ()=>{
                                                             children: key
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/views/CreateWizard.jsx",
-                                                            lineNumber: 184,
+                                                            lineNumber: 189,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1426,13 +1450,13 @@ const CreateWizard = ()=>{
                                                             children: value
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/views/CreateWizard.jsx",
-                                                            lineNumber: 185,
+                                                            lineNumber: 190,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, key, true, {
                                                     fileName: "[project]/src/views/CreateWizard.jsx",
-                                                    lineNumber: 183,
+                                                    lineNumber: 188,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0))),
                                             Object.keys(wizardState.formData).length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1440,19 +1464,19 @@ const CreateWizard = ()=>{
                                                 children: "No data entered yet."
                                             }, void 0, false, {
                                                 fileName: "[project]/src/views/CreateWizard.jsx",
-                                                lineNumber: 189,
+                                                lineNumber: 194,
                                                 columnNumber: 21
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/views/CreateWizard.jsx",
-                                        lineNumber: 181,
+                                        lineNumber: 186,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/views/CreateWizard.jsx",
-                                lineNumber: 178,
+                                lineNumber: 183,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)) : (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$personaData$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getSchemaForStep"])(currentStepName).map((field)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "form-group",
@@ -1461,7 +1485,7 @@ const CreateWizard = ()=>{
                                             children: field.label
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/CreateWizard.jsx",
-                                            lineNumber: 196,
+                                            lineNumber: 201,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         field.type === 'textarea' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -1472,7 +1496,7 @@ const CreateWizard = ()=>{
                                             onChange: (e)=>handleInputChange(field.id, e.target.value)
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/CreateWizard.jsx",
-                                            lineNumber: 198,
+                                            lineNumber: 203,
                                             columnNumber: 21
                                         }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                             type: field.type,
@@ -1482,18 +1506,18 @@ const CreateWizard = ()=>{
                                             onChange: (e)=>handleInputChange(field.id, e.target.value)
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/CreateWizard.jsx",
-                                            lineNumber: 206,
+                                            lineNumber: 211,
                                             columnNumber: 21
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, field.id, true, {
                                     fileName: "[project]/src/views/CreateWizard.jsx",
-                                    lineNumber: 195,
+                                    lineNumber: 200,
                                     columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0)))
                         }, void 0, false, {
                             fileName: "[project]/src/views/CreateWizard.jsx",
-                            lineNumber: 176,
+                            lineNumber: 181,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1505,7 +1529,7 @@ const CreateWizard = ()=>{
                                     children: "Back"
                                 }, void 0, false, {
                                     fileName: "[project]/src/views/CreateWizard.jsx",
-                                    lineNumber: 220,
+                                    lineNumber: 225,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1516,7 +1540,7 @@ const CreateWizard = ()=>{
                                             children: "Save Draft"
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/CreateWizard.jsx",
-                                            lineNumber: 224,
+                                            lineNumber: 229,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         isLastStep ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1525,7 +1549,7 @@ const CreateWizard = ()=>{
                                             children: "Generate Persona"
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/CreateWizard.jsx",
-                                            lineNumber: 226,
+                                            lineNumber: 231,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                             className: "primary-cta-btn",
@@ -1536,37 +1560,37 @@ const CreateWizard = ()=>{
                                                     size: 20
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/views/CreateWizard.jsx",
-                                                    lineNumber: 231,
+                                                    lineNumber: 236,
                                                     columnNumber: 28
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/views/CreateWizard.jsx",
-                                            lineNumber: 230,
+                                            lineNumber: 235,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/views/CreateWizard.jsx",
-                                    lineNumber: 223,
+                                    lineNumber: 228,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/views/CreateWizard.jsx",
-                            lineNumber: 219,
+                            lineNumber: 224,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/views/CreateWizard.jsx",
-                    lineNumber: 168,
+                    lineNumber: 173,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/src/views/CreateWizard.jsx",
-            lineNumber: 152,
+            lineNumber: 157,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     };
@@ -1579,11 +1603,11 @@ const CreateWizard = ()=>{
         ]
     }, void 0, true, {
         fileName: "[project]/src/views/CreateWizard.jsx",
-        lineNumber: 242,
+        lineNumber: 247,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(CreateWizard, "2OrPEQexGok7v0O5evBK78jMS5k=", false, function() {
+_s(CreateWizard, "jaxSGjSR5psbP+cCUeyUCUIrTN4=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"],
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$context$2f$PersonaContext$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePersona"]

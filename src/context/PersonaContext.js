@@ -18,9 +18,8 @@ export const PersonaProvider = ({ children }) => {
     if (saved) {
       setPersonas(JSON.parse(saved));
     } else {
-      // Seed with mock data
-      setPersonas(initialMockData);
-      localStorage.setItem('persona-hub-data', JSON.stringify(initialMockData));
+      setPersonas([]);
+      localStorage.setItem('persona-hub-data', JSON.stringify([]));
     }
     setIsLoaded(true);
   }, []);
