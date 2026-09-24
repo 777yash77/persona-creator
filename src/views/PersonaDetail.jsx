@@ -4,17 +4,14 @@ import { useParams, useRouter } from 'next/navigation';
 import { usePersona } from '../context/PersonaContext';
 import { 
   Edit2, Copy, Share2, Download, Archive, Trash2, MoreHorizontal,
-  Star, Target, AlertTriangle, TrendingUp, Sparkles, MessageSquare, Bot
+  Star, Target, AlertTriangle, TrendingUp, Sparkles, MessageSquare, Bot, User, MapPin, Briefcase
 } from 'lucide-react';
 import './PersonaDetail.css';
-
-const tabs = ['Overview', 'Insights', 'Journey', 'Goals', 'Pain Points', 'Behavior', 'Notes', 'Activity'];
 
 const PersonaDetail = () => {
   const { id } = useParams();
   const router = useRouter();
   const { getPersona, deletePersona, duplicatePersona } = usePersona();
-  const [activeTab, setActiveTab] = useState('Overview');
   const [persona, setPersona] = useState(null);
 
   useEffect(() => {
@@ -38,8 +35,14 @@ const PersonaDetail = () => {
     if(newId) router.push(`/persona/${newId}`);
   };
 
+  // Helper to extract dynamic fields
+  const getDynamicFields = () => {
+    const hiddenFields = ['id', 'name', 'role', 'type', 'avatarColor', 'description', 'status', 'lastUpdated', 'createdAt', 'owner', 'isFavorite', 'tags'];
+    return Object.entries(persona).filter(([key]) => !hiddenFields.includes(key));
+  };
+
   return (
-    <div className="page-container detail-page">
+    <div className="page-container detail-page-wrapper">
       <div className="detail-header-actions">
         <button className="back-link" onClick={() => router.push('/personas')}>← Back to Personas</button>
         <div className="action-buttons">
@@ -49,102 +52,117 @@ const PersonaDetail = () => {
           <button className="icon-btn" title="Download"><Download size={18} /></button>
           <button className="icon-btn" title="Favorite"><Star size={18} /></button>
           <button className="icon-btn text-danger" title="Delete" onClick={handleDelete}><Trash2 size={18} /></button>
-          <button className="icon-btn"><MoreHorizontal size={18} /></button>
         </div>
       </div>
 
-      <div className="detail-header">
-        <div className="detail-avatar" style={{ backgroundColor: persona.avatarColor }}>
-          {persona.name.charAt(0)}
-        </div>
-        <div className="detail-info">
-          <h1>{persona.name}</h1>
-          <p className="detail-role">{persona.role}</p>
-          <div className="detail-meta">
-            <span className="badge">{persona.type}</span>
-            <span className="text-muted">Updated {persona.lastUpdated || persona.createdAt}</span>
-          </div>
-        </div>
-      </div>
+      <div className="document-container">
+        <div className="a4-document">
+          <div className="doc-sidebar" style={{ background: `linear-gradient(180deg, ${persona.avatarColor} 0%, #1a1a1a 100%)` }}>
+            <div className="doc-avatar-container">
+              <div className="doc-avatar">
+                {persona.name.charAt(0)}
+              </div>
+            </div>
+            <h1 className="doc-name">{persona.name}</h1>
+            <p className="doc-role">{persona.role}</p>
+            <div className="doc-badge">{persona.type}</div>
 
-      <div className="detail-tabs">
-        {tabs.map(tab => (
-          <button 
-            key={tab} 
-            className={`tab-btn ${activeTab === tab ? 'active' : ''}`}
-            onClick={() => setActiveTab(tab)}
-          >
-            {tab}
-          </button>
-        ))}
-      </div>
+            <div className="doc-sidebar-section">
+              <h3>About</h3>
+              <p className="doc-desc">{persona.description || 'No description provided.'}</p>
+            </div>
 
-      <div className="detail-content">
-        {activeTab === 'Overview' && (
-          <div className="overview-grid">
-            <div className="detail-card profile-card">
+            <div className="doc-sidebar-section">
               <h3>Demographics</h3>
-              <ul>
-                <li><strong>Age:</strong> 32</li>
-                <li><strong>Location:</strong> Bangalore, India</li>
-                <li><strong>Education:</strong> MS Computer Science</li>
-                <li><strong>Income:</strong> High</li>
-              </ul>
-            </div>
-            
-            <div className="detail-card">
-              <div className="card-header-icon">
-                <Target size={20} className="text-blue" />
-                <h3>Primary Goals</h3>
-              </div>
-              <ul className="list-styled">
-                <li>Increase user adoption of new features</li>
-                <li>Reduce time-to-market for product releases</li>
-                <li>Improve team collaboration and velocity</li>
+              <ul className="doc-list">
+                <li><User size={16}/> {persona.age || '32 years old'}</li>
+                <li><MapPin size={16}/> {persona.location || 'Bangalore, India'}</li>
+                <li><Briefcase size={16}/> {persona.education || 'MS Computer Science'}</li>
               </ul>
             </div>
 
-            <div className="detail-card">
-              <div className="card-header-icon">
-                <AlertTriangle size={20} className="text-orange" />
-                <h3>Top Pain Points</h3>
+            {persona.tags && persona.tags.length > 0 && (
+              <div className="doc-sidebar-section">
+                <h3>Tags</h3>
+                <div className="doc-tags">
+                  {persona.tags.map(tag => (
+                    <span key={tag} className="doc-tag">{tag}</span>
+                  ))}
+                </div>
               </div>
-              <ul className="list-styled">
-                <li>Siloed data across multiple tools</li>
-                <li>Difficulty aligning stakeholders on roadmap</li>
-                <li>Lack of visibility into engineering capacity</li>
-              </ul>
+            )}
+          </div>
+
+          <div className="doc-main">
+            <div className="doc-section">
+              <div className="doc-section-header">
+                <Target className="section-icon text-blue" />
+                <h2>Goals & Objectives</h2>
+              </div>
+              <div className="doc-section-content">
+                {persona.primaryGoal || persona.goals ? (
+                  <p>{persona.primaryGoal || persona.goals}</p>
+                ) : (
+                  <ul className="doc-bullet-list">
+                    <li>Increase user adoption of new features</li>
+                    <li>Reduce time-to-market for product releases</li>
+                    <li>Improve team collaboration and velocity</li>
+                  </ul>
+                )}
+              </div>
             </div>
-            
-            <div className="detail-card col-span-2">
-              <div className="card-header-icon">
-                <TrendingUp size={20} className="text-green" />
-                <h3>Behavior & Preferences</h3>
+
+            <div className="doc-section">
+              <div className="doc-section-header">
+                <AlertTriangle className="section-icon text-orange" />
+                <h2>Pain Points & Challenges</h2>
               </div>
-              <p>Prefers asynchronous communication and highly values data-driven decision making. Highly active on professional networks (LinkedIn) and tech communities (ProductHunt). Evaluates tools based on API integrations and ease of onboarding.</p>
+              <div className="doc-section-content">
+                {persona.painPoints || persona.challenges ? (
+                  <p>{persona.painPoints || persona.challenges}</p>
+                ) : (
+                  <ul className="doc-bullet-list">
+                    <li>Siloed data across multiple tools</li>
+                    <li>Difficulty aligning stakeholders on roadmap</li>
+                    <li>Lack of visibility into engineering capacity</li>
+                  </ul>
+                )}
+              </div>
+            </div>
+
+            {getDynamicFields().length > 0 && (
+              <div className="doc-section">
+                <div className="doc-section-header">
+                  <TrendingUp className="section-icon text-green" />
+                  <h2>Additional Information</h2>
+                </div>
+                <div className="doc-dynamic-grid">
+                  {getDynamicFields().map(([key, value]) => (
+                    <div key={key} className="doc-dynamic-field">
+                      <h4>{key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}</h4>
+                      <p>{value}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div className="doc-section insights-section">
+              <div className="doc-section-header">
+                <Sparkles className="section-icon text-purple" />
+                <h2>AI Insights</h2>
+              </div>
+              <div className="insight-box highlight">
+                <h4>Key Insight</h4>
+                <p>This persona is highly sensitive to tool fragmentation. The best way to market to them is by emphasizing "All-in-one" capabilities and seamless integrations.</p>
+              </div>
+              <div className="insight-box">
+                <h4>Messaging Suggestion</h4>
+                <p>"Stop switching tabs. Manage your entire workflow in one place."</p>
+              </div>
             </div>
           </div>
-        )}
-        
-        {activeTab === 'Insights' && (
-          <div className="ai-insights-container">
-            <div className="insight-card highlight">
-              <Sparkles size={24} className="text-purple" />
-              <div>
-                <h3>Key Insight</h3>
-                <p>Arjun is highly sensitive to tool fragmentation. The best way to market to him is by emphasizing "All-in-one" capabilities and seamless integrations with Jira and Slack.</p>
-              </div>
-            </div>
-            
-            <div className="insight-card">
-              <MessageSquare size={20} />
-              <div>
-                <h3>Messaging Suggestion</h3>
-                <p>"Stop switching tabs. Manage your entire product lifecycle in one place."</p>
-              </div>
-            </div>
-          </div>
-        )}
+        </div>
       </div>
       
       {/* Floating AI Chat Assistant */}
