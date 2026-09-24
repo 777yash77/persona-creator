@@ -103,12 +103,12 @@ const Dashboard = () => {
                 <p className="persona-role">{persona.role}</p>
                 <div className="persona-meta">
                   <span className="persona-type">{persona.type}</span>
-                  <span className={`persona-status ${persona.status.toLowerCase()}`}>
-                    {persona.status}
+                  <span className={`persona-status ${persona.status ? persona.status.toLowerCase() : 'draft'}`}>
+                    {persona.status || 'Draft'}
                   </span>
                 </div>
                 <div className="persona-tags">
-                  {persona.tags.map(tag => (
+                  {(persona.tags || []).map(tag => (
                     <span key={tag} className="tag">{tag}</span>
                   ))}
                 </div>
