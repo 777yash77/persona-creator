@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/src/app/globals.css"],"sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');\n@import './tokens.css';\n\n* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  font-family: var(--font-family);\n  background-color: var(--bg-secondary);\n  color: var(--text-primary);\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n}\n\na {\n  color: inherit;\n  text-decoration: none;\n}\n\nbutton {\n  font-family: inherit;\n  cursor: pointer;\n  border: none;\n  background: none;\n}\n\ninput, textarea, select {\n  font-family: inherit;\n}\n\n/* App Layout */\n.app-container {\n  display: flex;\n  height: 100vh;\n  overflow: hidden;\n}\n\n.main-content {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  height: 100vh;\n  overflow-y: auto;\n  background-color: var(--bg-secondary);\n}\n\n.page-container {\n  padding: var(--spacing-xl);\n  max-width: 1200px;\n  margin: 0 auto;\n  width: 100%;\n}\n"],"names":[],"mappings":"AAGA;;;;;;AAMA;;;;;;;;AAQA;;;;;AAKA;;;;;;;AAOA;;;;AAKA;;;;;;AAMA;;;;;;;;;AASA"}}]
-}
