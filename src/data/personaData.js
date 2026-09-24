@@ -91,6 +91,23 @@ export const personaTypes = [
   }
 ];
 
+// Realistic section definitions used to render meaningful template previews.
+export const templateSectionLibrary = [
+  { title: 'Overview', description: 'High-level summary of who this persona represents and why they matter.' },
+  { title: 'Demographics', description: 'Age, location, education, income, and personal background.' },
+  { title: 'Goals & Motivations', description: 'What this persona is ultimately trying to achieve and why.' },
+  { title: 'Pain Points', description: 'The frustrations, blockers, and challenges they face today.' },
+  { title: 'Behaviors', description: 'Daily habits, preferences, and patterns of interaction.' },
+  { title: 'Preferred Channels', description: 'Where they spend time and how they prefer to engage.' },
+  { title: 'Decision Drivers', description: 'The factors and people that influence their decisions.' },
+  { title: 'Key Metrics', description: 'How success and satisfaction are measured for this persona.' },
+  { title: 'Representative Quotes', description: 'Direct statements that capture their mindset.' },
+  { title: 'Recommendations', description: 'Actionable next steps and messaging guidance.' }
+];
+
+export const getTemplateSections = (template) =>
+  templateSectionLibrary.slice(0, Math.max(template.sections, 1));
+
 export const questionnaireSteps = [
   'Basic Information',
   'Background',
@@ -100,7 +117,7 @@ export const questionnaireSteps = [
 ];
 
 export const getSchemaForStep = (stepName) => {
-  switch(stepName) {
+  switch (stepName) {
     case 'Basic Information':
       return [
         { id: 'name', label: 'Persona Name', type: 'text', placeholder: 'e.g. Alex Smith' },

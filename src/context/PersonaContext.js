@@ -1,6 +1,5 @@
 'use client';
-import { createContext, useContext, useState, useEffect } from 'react';
-import { recentPersonas as initialMockData } from '../data/mockData';
+import { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
 
 const PersonaContext = createContext();
 
@@ -14,68 +13,115 @@ export const PersonaProvider = ({ children }) => {
 
   useEffect(() => {
     // Load from local storage on mount
-    const saved = localStorage.getItem('persona-hub-data');
-    if (saved) {
-      setPersonas(JSON.parse(saved));
-    } else {
+    try {
+      const saved = localStorage.getItem('persona-hub-data');
+      if (saved) {
+        setPersonas(JSON.parse(saved));
+      } else {
+        setPersonas([]);
+        localStorage.setItem('persona-hub-data', JSON.stringify([]));
+      }
+    } catch (error) {
+      console.error('Failed to load personas from storage:', error);
       setPersonas([]);
-      localStorage.setItem('persona-hub-data', JSON.stringify([]));
     }
     setIsLoaded(true);
   }, []);
 
-  const saveToStorage = (data) => {
-    setPersonas(data);
-    localStorage.setItem('persona-hub-data', JSON.stringify(data));
-  };
-
-  const addPersona = (persona) => {
+  const addPersona = useCallback((persona) => {
     const newPersona = {
       ...persona,
       id: Date.now().toString(),
       createdAt: new Date().toISOString().split('T')[0], // YYYY-MM-DD
     };
-    saveToStorage([newPersona, ...personas]);
+    setPersonas((prev) => {
+      const next = [newPersona, ...prev];
+      try {
+        localStorage.setItem('persona-hub-data', JSON.stringify(next));
+      } catch (error) {
+        console.error('Failed to save personas to storage:', error);
+      }
+      return next;
+    });
     return newPersona.id;
-  };
+  }, []);
 
-  const updatePersona = (id, updatedData) => {
-    const newData = personas.map(p => p.id === id ? { ...p, ...updatedData } : p);
-    saveToStorage(newData);
-  };
+  const updatePersona = useCallback((id, updatedData) => {
+    setPersonas((prev) => {
+      const next = prev.map(p => p.id === id ? { ...p, ...updatedData } : p);
+      try {
+        localStorage.setItem('persona-hub-data', JSON.stringify(next));
+      } catch (error) {
+        console.error('Failed to save personas to storage:', error);
+      }
+      return next;
+    });
+  }, []);
 
-  const deletePersona = (id) => {
-    const newData = personas.filter(p => p.id !== id);
-    saveToStorage(newData);
-  };
+  const deletePersona = useCallback((id) => {
+    setPersonas((prev) => {
+      const next = prev.filter(p => p.id !== id);
+      try {
+        localStorage.setItem('persona-hub-data', JSON.stringify(next));
+      } catch (error) {
+        console.error('Failed to save personas to storage:', error);
+      }
+      return next;
+    });
+  }, []);
 
-  const duplicatePersona = (id) => {
-    const existing = personas.find(p => p.id === id);
-    if (!existing) return;
-    const duplicate = {
-      ...existing,
-      id: Date.now().toString(),
-      name: `${existing.name} (Copy)`,
-      createdAt: new Date().toISOString().split('T')[0],
-    };
-    saveToStorage([duplicate, ...personas]);
-    return duplicate.id;
-  };
+  const duplicatePersona = useCallback((id) => {
+    let newId = null;
+    setPersonas((prev) => {
+      const existing = prev.find(p => p.id === id);
+      if (!existing) return prev;
+      const duplicate = {
+        ...existing,
+        id: Date.now().toString(),
+        name: `${existing.name} (Copy)`,
+        createdAt: new Date().toISOString().split('T')[0],
+      };
+      newId = duplicate.id;
+      const next = [duplicate, ...prev];
+      try {
+        localStorage.setItem('persona-hub-data', JSON.stringify(next));
+      } catch (error) {
+        console.error('Failed to save personas to storage:', error);
+      }
+      return next;
+    });
+    return newId;
+  }, []);
 
-  const getPersona = (id) => {
+  const toggleFavorite = useCallback((id) => {
+    setPersonas((prev) => {
+      const next = prev.map(p => p.id === id ? { ...p, isFavorite: !p.isFavorite } : p);
+      try {
+        localStorage.setItem('persona-hub-data', JSON.stringify(next));
+      } catch (error) {
+        console.error('Failed to save personas to storage:', error);
+      }
+      return next;
+    });
+  }, []);
+
+  const getPersona = useCallback((id) => {
     return personas.find(p => p.id === id);
-  };
+  }, [personas]);
+
+  const value = useMemo(() => ({
+    personas,
+    isLoaded,
+    addPersona,
+    updatePersona,
+    deletePersona,
+    duplicatePersona,
+    toggleFavorite,
+    getPersona
+  }), [personas, isLoaded, addPersona, updatePersona, deletePersona, duplicatePersona, toggleFavorite, getPersona]);
 
   return (
-    <PersonaContext.Provider value={{
-      personas,
-      isLoaded,
-      addPersona,
-      updatePersona,
-      deletePersona,
-      duplicatePersona,
-      getPersona
-    }}>
+    <PersonaContext.Provider value={value}>
       {children}
     </PersonaContext.Provider>
   );

@@ -1,6 +1,7 @@
 'use client';
 import { BarChart2, TrendingUp, Users } from 'lucide-react';
 import { usePersona } from '../../context/PersonaContext';
+import '../../views/Dashboard.css';
 
 export default function Analytics() {
   const { personas } = usePersona();

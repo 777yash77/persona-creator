@@ -1,11 +1,11 @@
 'use client';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { 
+import {
   User, Building2, AlertCircle, Lightbulb, Monitor, Bot,
   ArrowRight, ArrowLeft, Check, Sparkles
 } from 'lucide-react';
-import { personaTypes, questionnaireSteps, getSchemaForStep } from '../data/personaData';
+import { personaTypes, questionnaireSteps, getSchemaForStep, getTemplateSections } from '../data/personaData';
 import { usePersona } from '../context/PersonaContext';
 import './CreateWizard.css';
 
@@ -18,18 +18,37 @@ const IconMap = {
   Bot: <Bot size={32} />
 };
 
+const aiSamples = {
+  name: 'Alex Morgan',
+  role: 'Senior Product Manager',
+  description: 'A data-driven product leader focused on shipping customer-centric features.',
+  age: '28-35',
+  location: 'San Francisco, USA',
+  education: 'BSc in Computer Science',
+  primaryGoal: 'Ship high-impact features that improve retention.',
+  secondaryGoals: 'Mentor the team and streamline the discovery process.',
+  painPoints: 'Too many disconnected tools slowing down decision making.',
+  challenges: 'Aligning stakeholders on a fast-moving roadmap.'
+};
+
 const CreateWizard = () => {
   const router = useRouter();
-  const { addPersona } = usePersona();
+  const { addPersona, updatePersona } = usePersona();
   const [wizardState, setWizardState] = useState({
     globalStep: 0, // 0: Type, 1: Template, 2+: Questionnaire
     selectedType: null,
     selectedTemplate: null,
     questionnaireStep: 0,
-    questionnaireStep: 0,
     formData: {}
   });
   const [previewTemplate, setPreviewTemplate] = useState(null);
+  const [draftId, setDraftId] = useState(null);
+  const [toast, setToast] = useState('');
+
+  const showToast = (text) => {
+    setToast(text);
+    setTimeout(() => setToast(''), 2500);
+  };
 
   const handleInputChange = (fieldId, value) => {
     setWizardState(prev => ({
@@ -46,19 +65,20 @@ const CreateWizard = () => {
     setWizardState(prev => ({ ...prev, selectedTemplate: template, globalStep: 2, questionnaireStep: 0 }));
   };
 
+  const buildPersonaPayload = (status) => ({
+    name: wizardState.formData.name || wizardState.selectedTemplate?.name || 'Untitled Persona',
+    role: wizardState.formData.role || wizardState.selectedTemplate?.name || 'Persona',
+    type: wizardState.selectedType?.title || 'Person',
+    status,
+    avatarColor: `hsl(${Math.random() * 360}, 70%, 50%)`,
+    description: wizardState.formData.description || 'Generated persona.',
+    ...wizardState.formData,
+  });
+
   const handleNextStep = () => {
     const isLastStep = wizardState.questionnaireStep === questionnaireSteps.length - 1;
     if (isLastStep) {
-      // Save and Generate
-      const personaToSave = {
-        name: wizardState.formData.name || 'Untitled Persona',
-        role: wizardState.formData.role || wizardState.selectedTemplate?.name || 'Persona',
-        type: wizardState.selectedType?.title || 'Person',
-        avatarColor: `hsl(${Math.random() * 360}, 70%, 50%)`, // Random avatar color
-        description: wizardState.formData.description || 'Generated persona.',
-        ...wizardState.formData, // capture all other dynamic fields
-      };
-      const newId = addPersona(personaToSave);
+      const newId = addPersona(buildPersonaPayload('Complete'));
       router.push(`/persona/${newId}`);
     } else {
       setWizardState(prev => ({ ...prev, questionnaireStep: prev.questionnaireStep + 1 }));
@@ -72,9 +92,36 @@ const CreateWizard = () => {
       setWizardState(prev => ({ ...prev, globalStep: 1 }));
     }
   };
-  
+
   const handleBackToTypes = () => {
     setWizardState(prev => ({ ...prev, globalStep: 0, selectedType: null }));
+  };
+
+  const handleAutoFill = () => {
+    const currentStepName = questionnaireSteps[wizardState.questionnaireStep];
+    const fields = getSchemaForStep(currentStepName);
+    if (!fields.length) {
+      showToast('Nothing to auto-fill on this step.');
+      return;
+    }
+    const filled = {};
+    fields.forEach((field) => {
+      filled[field.id] = aiSamples[field.id] || `${currentStepName} details`;
+    });
+    setWizardState(prev => ({ ...prev, formData: { ...prev.formData, ...filled } }));
+    showToast('Fields auto-filled with AI suggestions.');
+  };
+
+  const handleSaveDraft = () => {
+    const payload = buildPersonaPayload('Draft');
+    if (draftId) {
+      updatePersona(draftId, payload);
+      showToast('Draft updated.');
+    } else {
+      const newId = addPersona(payload);
+      setDraftId(newId);
+      showToast('Draft saved.');
+    }
   };
 
   const renderTypeSelection = () => (
@@ -85,10 +132,13 @@ const CreateWizard = () => {
       </div>
       <div className="type-cards-grid">
         {personaTypes.map(type => (
-          <div 
-            key={type.id} 
+          <div
+            key={type.id}
             className="type-card"
+            role="button"
+            tabIndex={0}
             onClick={() => handleTypeSelect(type)}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleTypeSelect(type); }}
           >
             <div className="type-icon">{IconMap[type.icon]}</div>
             <h3 className="type-title">{type.title}</h3>
@@ -116,11 +166,11 @@ const CreateWizard = () => {
         </div>
         <div className="template-cards-grid">
           {wizardState.selectedType.templates.map((template, idx) => (
-            <div 
-              key={template.id} 
+            <div
+              key={template.id}
               className="template-card"
             >
-              <div 
+              <div
                 className="template-card-image dynamic-bg"
                 style={{ background: `linear-gradient(135deg, hsl(${idx * 45 + 200}, 70%, 50%), hsl(${idx * 45 + 240}, 70%, 40%))` }}
               >
@@ -139,7 +189,7 @@ const CreateWizard = () => {
                 </div>
                 <div className="template-actions">
                   <button className="preview-btn" onClick={() => setPreviewTemplate(template)}>Preview</button>
-                  <button 
+                  <button
                     className="use-template-btn"
                     onClick={() => handleTemplateSelect(template)}
                   >
@@ -163,8 +213,8 @@ const CreateWizard = () => {
         <div className="questionnaire-sidebar">
           <div className="progress-list">
             {questionnaireSteps.map((step, idx) => (
-              <div 
-                key={step} 
+              <div
+                key={step}
                 className={`progress-item ${idx === wizardState.questionnaireStep ? 'active' : ''} ${idx < wizardState.questionnaireStep ? 'completed' : ''}`}
               >
                 <div className="step-indicator">
@@ -178,11 +228,11 @@ const CreateWizard = () => {
         <div className="questionnaire-content">
           <div className="form-header">
             <h2>Step {wizardState.questionnaireStep + 1}: {currentStepName}</h2>
-            <button className="ai-assist-btn">
+            <button className="ai-assist-btn" onClick={handleAutoFill}>
               <Sparkles size={16} /> Auto-fill with AI
             </button>
           </div>
-          
+
           <div className="form-body">
             {currentStepName === 'Review' ? (
               <div className="review-section">
@@ -205,18 +255,18 @@ const CreateWizard = () => {
                 <div key={field.id} className="form-group">
                   <label>{field.label}</label>
                   {field.type === 'textarea' ? (
-                    <textarea 
-                      placeholder={field.placeholder} 
-                      className="form-textarea" 
+                    <textarea
+                      placeholder={field.placeholder}
+                      className="form-textarea"
                       rows={4}
                       value={wizardState.formData[field.id] || ''}
                       onChange={(e) => handleInputChange(field.id, e.target.value)}
                     />
                   ) : (
-                    <input 
-                      type={field.type} 
-                      placeholder={field.placeholder} 
-                      className="form-input" 
+                    <input
+                      type={field.type}
+                      placeholder={field.placeholder}
+                      className="form-input"
                       value={wizardState.formData[field.id] || ''}
                       onChange={(e) => handleInputChange(field.id, e.target.value)}
                     />
@@ -231,7 +281,7 @@ const CreateWizard = () => {
               Back
             </button>
             <div className="form-footer-right">
-              <button className="text-btn">Save Draft</button>
+              <button className="text-btn" onClick={handleSaveDraft}>Save Draft</button>
               {isLastStep ? (
                 <button className="primary-cta-btn generate-btn" onClick={handleNextStep}>
                   Generate Persona
@@ -267,11 +317,13 @@ const CreateWizard = () => {
                 <span>{previewTemplate.sections} Sections to complete</span>
               </div>
               <div className="template-preview-mock">
-                {Array.from({ length: previewTemplate.sections }).map((_, i) => (
-                  <div key={i} className="mock-section">
-                    <div className="mock-title"></div>
-                    <div className="mock-text"></div>
-                    <div className="mock-text short"></div>
+                {getTemplateSections(previewTemplate).map((section, i) => (
+                  <div key={i} className="preview-section">
+                    <div className="preview-section-header">
+                      <span className="preview-section-number">{i + 1}</span>
+                      <h4>{section.title}</h4>
+                    </div>
+                    <p className="preview-section-desc">{section.description}</p>
                   </div>
                 ))}
               </div>
@@ -286,6 +338,8 @@ const CreateWizard = () => {
           </div>
         </div>
       )}
+
+      {toast && <div className="toast-message">{toast}</div>}
     </div>
   );
 };
