@@ -26,8 +26,10 @@ const CreateWizard = () => {
     selectedType: null,
     selectedTemplate: null,
     questionnaireStep: 0,
+    questionnaireStep: 0,
     formData: {}
   });
+  const [previewTemplate, setPreviewTemplate] = useState(null);
 
   const handleInputChange = (fieldId, value) => {
     setWizardState(prev => ({
@@ -118,8 +120,11 @@ const CreateWizard = () => {
               key={template.id} 
               className="template-card"
             >
-              <div className="template-card-image">
-                <img src="/assets/template-placeholder.jpg" alt={`${template.name} preview`} />
+              <div 
+                className="template-card-image dynamic-bg"
+                style={{ background: `linear-gradient(135deg, hsl(${idx * 45 + 200}, 70%, 50%), hsl(${idx * 45 + 240}, 70%, 40%))` }}
+              >
+                <span className="template-initial">{template.name.charAt(0)}</span>
               </div>
               <div className="template-card-content">
                 <div className="template-card-header">
@@ -133,7 +138,7 @@ const CreateWizard = () => {
                   <span>{template.sections} sections</span>
                 </div>
                 <div className="template-actions">
-                  <button className="preview-btn">Preview</button>
+                  <button className="preview-btn" onClick={() => setPreviewTemplate(template)}>Preview</button>
                   <button 
                     className="use-template-btn"
                     onClick={() => handleTemplateSelect(template)}
@@ -248,6 +253,39 @@ const CreateWizard = () => {
       {wizardState.globalStep === 0 && renderTypeSelection()}
       {wizardState.globalStep === 1 && renderTemplateSelection()}
       {wizardState.globalStep === 2 && renderQuestionnaire()}
+
+      {previewTemplate && (
+        <div className="preview-modal-overlay" onClick={() => setPreviewTemplate(null)}>
+          <div className="preview-modal-content" onClick={e => e.stopPropagation()}>
+            <div className="preview-modal-header">
+              <h2>{previewTemplate.name} Preview</h2>
+              <button className="icon-btn close-btn" onClick={() => setPreviewTemplate(null)}>×</button>
+            </div>
+            <div className="preview-modal-body">
+              <div className="preview-meta">
+                <span className={`complexity-badge ${previewTemplate.complexity.toLowerCase()}`}>{previewTemplate.complexity} Complexity</span>
+                <span>{previewTemplate.sections} Sections to complete</span>
+              </div>
+              <div className="template-preview-mock">
+                {Array.from({ length: previewTemplate.sections }).map((_, i) => (
+                  <div key={i} className="mock-section">
+                    <div className="mock-title"></div>
+                    <div className="mock-text"></div>
+                    <div className="mock-text short"></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="preview-modal-footer">
+              <button className="secondary-btn" onClick={() => setPreviewTemplate(null)}>Close</button>
+              <button className="primary-cta-btn" onClick={() => {
+                handleTemplateSelect(previewTemplate);
+                setPreviewTemplate(null);
+              }}>Use This Template</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
