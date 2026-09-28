@@ -75,8 +75,17 @@ const CreateWizard = () => {
     ...wizardState.formData,
   });
 
+  const getActiveSteps = () => {
+    if (wizardState.selectedTemplate) {
+      const templateSections = getTemplateSections(wizardState.selectedTemplate).map(s => s.title);
+      return [...templateSections, 'Review'];
+    }
+    return questionnaireSteps;
+  };
+
   const handleNextStep = () => {
-    const isLastStep = wizardState.questionnaireStep === questionnaireSteps.length - 1;
+    const activeSteps = getActiveSteps();
+    const isLastStep = wizardState.questionnaireStep === activeSteps.length - 1;
     if (isLastStep) {
       const newId = addPersona(buildPersonaPayload('Complete'));
       router.push(`/persona/${newId}`);
@@ -98,7 +107,8 @@ const CreateWizard = () => {
   };
 
   const handleAutoFill = () => {
-    const currentStepName = questionnaireSteps[wizardState.questionnaireStep];
+    const activeSteps = getActiveSteps();
+    const currentStepName = activeSteps[wizardState.questionnaireStep];
     const fields = getSchemaForStep(currentStepName);
     if (!fields.length) {
       showToast('Nothing to auto-fill on this step.');
@@ -205,14 +215,15 @@ const CreateWizard = () => {
   };
 
   const renderQuestionnaire = () => {
-    const currentStepName = questionnaireSteps[wizardState.questionnaireStep];
-    const isLastStep = wizardState.questionnaireStep === questionnaireSteps.length - 1;
+    const activeSteps = getActiveSteps();
+    const currentStepName = activeSteps[wizardState.questionnaireStep];
+    const isLastStep = wizardState.questionnaireStep === activeSteps.length - 1;
 
     return (
       <div className="wizard-step-container flex-row">
         <div className="questionnaire-sidebar">
           <div className="progress-list">
-            {questionnaireSteps.map((step, idx) => (
+            {activeSteps.map((step, idx) => (
               <div
                 key={step}
                 className={`progress-item ${idx === wizardState.questionnaireStep ? 'active' : ''} ${idx < wizardState.questionnaireStep ? 'completed' : ''}`}

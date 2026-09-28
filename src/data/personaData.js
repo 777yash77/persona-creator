@@ -119,26 +119,57 @@ export const questionnaireSteps = [
 export const getSchemaForStep = (stepName) => {
   switch (stepName) {
     case 'Basic Information':
+    case 'Overview':
       return [
         { id: 'name', label: 'Persona Name', type: 'text', placeholder: 'e.g. Alex Smith' },
         { id: 'role', label: 'Role / Job Title', type: 'text', placeholder: 'e.g. Marketing Manager' },
-        { id: 'description', label: 'Short Description', type: 'textarea', placeholder: 'Brief summary...' }
+        { id: 'description', label: 'Overview / Description', type: 'textarea', placeholder: 'Brief summary...' }
       ];
     case 'Background':
+    case 'Demographics':
       return [
         { id: 'age', label: 'Age Range', type: 'text', placeholder: 'e.g. 25-34' },
         { id: 'location', label: 'Location', type: 'text', placeholder: 'e.g. New York, USA' },
-        { id: 'education', label: 'Education', type: 'text', placeholder: 'e.g. Bachelor in Business' }
+        { id: 'education', label: 'Education / Income', type: 'text', placeholder: 'e.g. Bachelor in Business' }
       ];
     case 'Goals':
+    case 'Goals & Motivations':
       return [
         { id: 'primaryGoal', label: 'Primary Goal', type: 'text', placeholder: 'What do they want to achieve?' },
-        { id: 'secondaryGoals', label: 'Secondary Goals', type: 'textarea', placeholder: 'Any other goals...' }
+        { id: 'secondaryGoals', label: 'Secondary Motivations', type: 'textarea', placeholder: 'Any other goals or motivations...' }
       ];
     case 'Problems':
+    case 'Pain Points':
       return [
         { id: 'painPoints', label: 'Pain Points', type: 'textarea', placeholder: 'What frustrates them?' },
         { id: 'challenges', label: 'Main Challenges', type: 'textarea', placeholder: 'What blocks their success?' }
+      ];
+    case 'Behaviors':
+      return [
+        { id: 'dailyHabits', label: 'Daily Habits', type: 'textarea', placeholder: 'What does their day look like?' },
+        { id: 'preferences', label: 'Preferences', type: 'textarea', placeholder: 'What are their preferences?' }
+      ];
+    case 'Preferred Channels':
+      return [
+        { id: 'socialMedia', label: 'Social Media / Platforms', type: 'text', placeholder: 'e.g. LinkedIn, Twitter' },
+        { id: 'communication', label: 'Communication Style', type: 'text', placeholder: 'e.g. Email, Slack' }
+      ];
+    case 'Decision Drivers':
+      return [
+        { id: 'influencers', label: 'Key Influencers', type: 'textarea', placeholder: 'Who or what influences them?' },
+        { id: 'dealBreakers', label: 'Deal Breakers', type: 'textarea', placeholder: 'What stops them from deciding?' }
+      ];
+    case 'Key Metrics':
+      return [
+        { id: 'successMetrics', label: 'Success Metrics', type: 'textarea', placeholder: 'How is success measured?' }
+      ];
+    case 'Representative Quotes':
+      return [
+        { id: 'quotes', label: 'Direct Quotes', type: 'textarea', placeholder: 'e.g. "I just need a tool that works."' }
+      ];
+    case 'Recommendations':
+      return [
+        { id: 'actionSteps', label: 'Actionable Steps', type: 'textarea', placeholder: 'Next steps or messaging guidance.' }
       ];
     default:
       return [];
