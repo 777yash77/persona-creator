@@ -6,7 +6,6 @@ import {
   Users, Calendar, FileText, Share2, Plus, ArrowRight,
   MoreVertical, Star, Eye, Copy, Trash2, Upload
 } from 'lucide-react';
-import { dashboardStats } from '../data/mockData';
 import { usePersona } from '../context/PersonaContext';
 import './Dashboard.css';
 
@@ -19,6 +18,12 @@ const Dashboard = () => {
   const menuRef = useRef(null);
 
   const recentPersonas = isLoaded ? personas.slice(0, 4) : [];
+  
+  // Compute stats
+  const totalPersonas = personas ? personas.length : 0;
+  const drafts = personas ? personas.filter(p => !p.status || p.status.toLowerCase() === 'draft').length : 0;
+  const completed = totalPersonas - drafts;
+  const thisMonth = totalPersonas; // simplified for now
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -99,8 +104,8 @@ const Dashboard = () => {
     <div className="page-container dashboard-page">
       <div className="dashboard-header">
         <div>
-          <h1 className="welcome-text">Good morning, Alex</h1>
-          <p className="welcome-subtext">Build better products by understanding the people, businesses, and problems behind them.</p>
+          <h1 className="welcome-text">Dashboard</h1>
+          <p className="welcome-subtext">Manage and build your personas.</p>
         </div>
       </div>
 
@@ -134,7 +139,7 @@ const Dashboard = () => {
           </div>
           <div className="stat-content">
             <span className="stat-label">Total Personas</span>
-            <span className="stat-value">{personas ? personas.length : 0}</span>
+            <span className="stat-value">{totalPersonas}</span>
           </div>
         </div>
         <div className="stat-card">
@@ -142,8 +147,8 @@ const Dashboard = () => {
             <Calendar size={20} />
           </div>
           <div className="stat-content">
-            <span className="stat-label">Created This Month</span>
-            <span className="stat-value">{dashboardStats.thisMonth}</span>
+            <span className="stat-label">Recently Added</span>
+            <span className="stat-value">{thisMonth}</span>
           </div>
         </div>
         <div className="stat-card">
@@ -152,7 +157,7 @@ const Dashboard = () => {
           </div>
           <div className="stat-content">
             <span className="stat-label">Drafts</span>
-            <span className="stat-value">{dashboardStats.drafts}</span>
+            <span className="stat-value">{drafts}</span>
           </div>
         </div>
         <div className="stat-card">
@@ -160,8 +165,8 @@ const Dashboard = () => {
             <Share2 size={20} />
           </div>
           <div className="stat-content">
-            <span className="stat-label">Shared</span>
-            <span className="stat-value">{dashboardStats.shared}</span>
+            <span className="stat-label">Completed</span>
+            <span className="stat-value">{completed}</span>
           </div>
         </div>
       </div>
